@@ -5,6 +5,6 @@ public static void main(String[] args) {
 	System.out.print("ㅁㄴㅇㅁ");
 	System.out.println("abcdefg");
 	System.out.println("뀨뀨뀨뀨뀨뀨뀨뀨뀨");
-	System.out.println();
+	System.out.println("용호형 미친놈");
 }
 }
