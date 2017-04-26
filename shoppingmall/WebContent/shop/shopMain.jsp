@@ -24,7 +24,9 @@
 	<div id="shop" class="box2">
 		<c:forEach var="bookList" items="${bookLists }">
 			<c:set var="book_kind" value="${bookList[0].getBook_kind() }"></c:set>
-			<c:if test="${book_kind=='100' }"></c:if>
+			<c:if test="${book_kind=='100' }">
+			
+			</c:if>
 		</c:forEach>
 	</div>
 </body>
