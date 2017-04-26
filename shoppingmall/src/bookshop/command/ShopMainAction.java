@@ -9,7 +9,7 @@ public class ShopMainAction implements CommandAcion {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
+		MngrDataBean 
 		
 		return null;
 	}
