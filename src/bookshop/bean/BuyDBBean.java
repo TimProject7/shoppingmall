@@ -1,4 +1,4 @@
-﻿package bookshop.bean;
+package bookshop.bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -156,7 +156,7 @@ public class BuyDBBean {
 
 				}
 				pstmt = conn.prepareStatement("delete from cart where buyer=?");
-				pstmt.setShort(1, id);
+				pstmt.setString(1, id);
 				pstmt.executeUpdate();
 
 				conn.commit();
@@ -288,18 +288,129 @@ public class BuyDBBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-BuyDataBean buy=null;
-String sql="";
-List<BuyDataBean>lists=null;
+		BuyDataBean buy = null;
+		String sql = "";
+		List<BuyDataBean> lists = null;
 
+		try {
+			conn = getConnection();
 
-try{
-	conn=getConnection();
-	
-	sql="select * from buy where buyer=?";
-	pstmt 
-}
+			sql = "select * from buy where buyer=?";
+			pstmt = conn.prepareStatement(sql);
 
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			lists = new ArrayList<BuyDataBean>();
+
+			while (rs.next()) {
+				buy = new BuyDataBean();
+
+				buy.setBuy_id(rs.getLong("buy_id"));
+				buy.setBook_id(rs.getInt("book_id"));
+				buy.setBook_title(rs.getString("book_title"));
+				buy.setBuy_price(rs.getInt("buy_price"));
+				buy.setBuy_count(rs.getByte("buy_count"));
+				buy.setBook_image(rs.getString("book_image"));
+				buy.setSanction(rs.getString("sanction"));
+				lists.add(buy);
+			}
+
+		} catch (Exception ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+
+		}
+		return lists;
+
+	}
+
+	// buy 테이블의 전체 목록을 얻어내는 메소드
+	public List<BuyDataBean> getBuyList() throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		BuyDataBean buy = null;
+		String sql = "";
+		List<BuyDataBean> lists = null;
+
+		try {
+			conn = getConnection();
+
+			sql = "select * from buy";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			lists = new ArrayList<BuyDataBean>();
+
+			while (rs.next()) {
+				buy = new BuyDataBean();
+
+				buy.setBuy_id(rs.getLong("buy_id"));
+				buy.setBuyer(rs.getString("buyer"));
+				buy.setBook_id(rs.getInt("book_id"));
+				buy.setBook_title(rs.getString("book_title"));
+				buy.setBuy_price(rs.getInt("buy_price"));
+				buy.setBook_image(rs.getString("book_image"));
+				buy.setBuy_date(rs.getTimestamp("buy_date"));
+				buy.setAccount(rs.getString("account"));
+				buy.setDeliveryName(rs.getString("deliveryName"));
+				buy.setDeliveryTel(rs.getString("deliveryTel"));
+				buy.setDeliveryAddress(rs.getString("deliveryAddress"));
+				buy.setSanction(rs.getString("sanction"));
+
+				lists.add(buy);
+			}
+		} catch (Exception ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+
+		}
+		return lists;
 	}
 
 }
