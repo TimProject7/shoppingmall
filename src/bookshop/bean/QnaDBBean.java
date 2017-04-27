@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -155,10 +157,352 @@ public class QnaDBBean {
 		}
 		return x;
 	}
-	
-	//qna 테이블에 저장된 전체 글의수를 얻어냄
-	public int getArticleCount(){
-		
+
+	// qna 테이블에 저장된 전체 글의수를 얻어냄
+	public int getArticleCount() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0;
+
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement("select count(*) from qna");
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				x = rs.getInt(1);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return x;
+	}
+
+	// 특정 책에 대해 작성한 qna 글의 수를 얻어냄
+	public int getArticleCount(int book_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0;
+
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement("select count(*) from qna where book_id=" + book_id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				x = rs.getInt(1);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return x;
+	}
+
+	// 지정한 수에 해당하는 qna 글의 수를 얻어냄
+	public List<QnaDataBean> getArticles(int count) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QnaDataBean> articleList = null;// 글목록을 저장하는 객체
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement("select * from qna order by group_id desc, qora asc");
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {// ResultSet이 레코드를 가짐
+				articleList = new ArrayList<QnaDataBean>(count);
+				do {
+					QnaDataBean article = new QnaDataBean();
+					article.setQna_id(rs.getInt("qna_id"));
+					article.setBook_id(rs.getInt("book_id"));
+					article.setBook_title(rs.getString("book_title"));
+					article.setQna_writer(rs.getString("qna_writer"));
+					article.setQna_content(rs.getString("qna_content"));
+					article.setGroup_id(rs.getInt("group_id"));
+					article.setQora(rs.getByte("qora"));
+					article.setReply(rs.getByte("reply"));
+					article.setReg_date(rs.getTimestamp("reg_date"));
+
+					// List객체에 데이터 저장빈인 BoardDataBean 객체를 저장
+					articleList.add(article);
+				} while (rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return articleList;// List 객체의 래퍼런스를 리턴
+	}
+
+	// 특정 책에 대해 작성한 qna 글을 지정한 수만큼 얻어냄
+	public List<QnaDataBean> getArticles(int count, int book_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QnaDataBean> articleList = null;// 글목록을 저장하는 객체
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement(
+					"select * from qna where book_id=" + book_id + "order by group_id desc, qora asc");
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {// ResultSet이 레코드를 가짐
+				articleList = new ArrayList<QnaDataBean>(count);
+				do {
+					QnaDataBean article = new QnaDataBean();
+					article.setQna_id(rs.getInt("qna_id"));
+					article.setBook_id(rs.getInt("book_id"));
+					article.setBook_title(rs.getString("book_title"));
+					article.setQna_writer(rs.getString("qna_writer"));
+					article.setQna_content(rs.getString("qna_content"));
+					article.setGroup_id(rs.getInt("group_id"));
+					article.setQora(rs.getByte("qora"));
+					article.setReply(rs.getByte("reply"));
+					article.setReg_date(rs.getTimestamp("reg_date"));
+
+					// List객체에 데이터 저장빈인 BoardDataBean 객체를 저장
+					articleList.add(article);
+				} while (rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return articleList;// List 객체의 래퍼런스를 리턴
+	}
+
+	// Qna 글수정 폼에서 사용할 글의 내용
+	public QnaDataBean updateGetArticle(int qna_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		QnaDataBean article = null;
+
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement("select * from qna where qna_id=?");
+			pstmt.setInt(1, qna_id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				article = new QnaDataBean();
+				article.setQna_id(rs.getInt("qna_id"));
+				article.setBook_id(rs.getInt("book_id"));
+				article.setBook_title(rs.getString("book_title"));
+				article.setQna_writer(rs.getString("qna_writer"));
+				article.setQna_content(rs.getString("qna_content"));
+				article.setGroup_id(rs.getInt("group_id"));
+				article.setQora(rs.getByte("qora"));
+				article.setReply(rs.getByte("reply"));
+				article.setReg_date(rs.getTimestamp("reg_date"));
+
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return article;
+	}
+
+	// Qna 글수정 처리에서 사용
+	public int updateArticle(QnaDataBean article) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		try {
+			conn = getConnection();
+
+			String sql = "update qna set qna_content=? where qna_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, article.getQna_content());
+			pstmt.setInt(2, article.getQna_id());
+			pstmt.executeUpdate();
+			x = 1;
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return x;
+	}
+
+	// Qna 글수정 삭제 처리시 사용
+	public int deleteArticle(int qna_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement("delete from qna where qna_id=?");
+			pstmt.setInt(1, qna_id);
+			pstmt.executeUpdate();
+			x = 1;// 글 삭제 성공
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		return x;
 	}
 
 }
