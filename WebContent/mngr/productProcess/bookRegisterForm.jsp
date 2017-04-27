@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="/shoppingmall/css/style.css" />
 
-<script src="/shoppingmall/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="/shoppingmall/js/jquery.form.min.js"></script>
 <script src="/shoppingmall/mngr/productProcess/bookregist.js"></script>
 
