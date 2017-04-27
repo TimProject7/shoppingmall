@@ -228,7 +228,7 @@ public class LogonDBBean {
 	}
 
 	// 주어진 id, passwd에 해당하는 회원정보를 얻어내는 메소드
-	public LogonDataBean getmember(String id, String passwd) {
+	public LogonDataBean getMember(String id, String passwd) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
