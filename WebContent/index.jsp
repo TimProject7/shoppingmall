@@ -20,7 +20,7 @@
 				<jsp:include page="mngr/logon/mLoginForm.jsp" />
 			</c:if>
 			<c:if test="${type==1 }">
-				<jsp:include page="mamber/loginForm.jsp" />
+				<jsp:include page="member/loginForm.jsp" />
 			</c:if>
 		</div>
 	</div>
