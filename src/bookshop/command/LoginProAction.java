@@ -3,6 +3,8 @@
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.LogonDBBean;
+
 public class LoginProAction implements CommandAction {
 
 	@Override
