@@ -1,4 +1,4 @@
-﻿package bookshop.bean;
+package bookshop.command;
 
 import java.sql.Timestamp;
 
