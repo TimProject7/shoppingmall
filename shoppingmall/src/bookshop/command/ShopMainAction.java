@@ -1,17 +1,12 @@
-package bookshop.command;
+﻿package bookshop.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bookshop.process.CommandAcion;
-
-public class ShopMainAction implements CommandAcion {
-
+public class ShopMainAction implements CommandAction {
 	@Override
-	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		MngrDataBean 
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 		
 		return null;
 	}
-
 }
