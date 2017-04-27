@@ -24,6 +24,7 @@ import bookshop.command.CommandAction;
  * Servlet implementation class Controller
  */
 @WebServlet(
+		//매핑의 패턴을 지정해서 .do확장자로 들어오는 url을 인식할수있게했다.
 	urlPatterns = { 
 		"/Controller", 
 		"*.do"
