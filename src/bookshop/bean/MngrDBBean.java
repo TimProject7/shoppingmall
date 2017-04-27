@@ -405,9 +405,9 @@ public class MngrDBBean {
 
 		try {
 			conn = getConnection();
-
-			String sql = "select * from book where book_kind = ?";
-			sql += " order by reg_date desc limit ?,?";
+			//리미트 쿼리 변경
+			String sql = "select book_id, book_kind, book_title, book_price, book_count, author,publishing_com,publishing_date,book_image,discount_rate,"
+					+ " reg_date,rownum from (select * from book where book_kind=? order by reg_date desc) where rownum <= ?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, book_kind);

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/shoppingmall/css/style.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js">
 </script>
-
+<!-- 쇼핑몰 고객 로그인폼 -->
 <c:if test="${empty sessionScope.id}">
 	<div id="lStatus">
 		<ul>
