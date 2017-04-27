@@ -4,5 +4,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="stylesheet" href="/shoppingmall/css/style.css"/>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="/shoppingmall/mngr/qnaProcess/qnalist.js"></script>
