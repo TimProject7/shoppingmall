@@ -1,6 +1,6 @@
 ﻿$(document).ready(function() {
 	$("#upForm1").ajaxForm({ //[책수정] 버튼 클릭
-		success : function(data, status) { //업로드에 성공하면 수행
+		success : function(data,status) { //업로드에 성공하면 수행
 			location.href="/shoppingmall/mg/bookList.do?book_kind=all";
 		}
 	});

@@ -21,7 +21,7 @@ function edit(editBtn){
 function del(delBtn){
 	var rStr = delBtn.name;
 	var arr = rStr.split(",");
-	var query = "/shoppingmll/mg/bookDeletePro.do?book_id="+arr[0];
-	query += "$&book_kin="+arr[1];
+	var query = "/shoppingmall/mg/bookDeletePro.do?book_id="+arr[0];
+	query += "&book_kin="+arr[1];
 	location.href=query;
 }

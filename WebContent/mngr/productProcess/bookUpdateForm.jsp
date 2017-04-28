@@ -18,8 +18,7 @@
 	<button id="bookMain">관리자 메인으로</button>
 	<button id="bookList">목록으로</button>
 </div>
-<form id="upForm1" action="/shoppingmaill/mg/bookUpdatePro.do"
-	method="post" enctype="multipart/form-data">
+<form id="upForm1" action="/shoppingmaill/mg/bookUpdatePro.do" method="post" enctype="multipart/form-data">
 	<div id="bookUpdateForm" class="box">
 		<ul>
 			<li><label for="book_kind">분류선택</label> <select id="book_kind"
