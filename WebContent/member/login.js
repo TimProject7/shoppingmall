@@ -1,7 +1,7 @@
 ﻿$(document).ready(function() {
 	$("#uRes").click(function() { //회원가입 버튼 클릭
 	
-		window.location.href("/shoppingmall/registerForm.do");
+		location.href("/shoppingmall/registerForm.do");
 		
 	});
 	
@@ -23,7 +23,7 @@
 				var check = data.substr(loc+len,1);
 				
 				if(check == "1"){
-					window.location.href("/shoppingmall/index.do");
+					location.href("/shoppingmall/index.do");
 				}else if(check == "0"){
 					alert("비밀번호가 틀립니다.");
 					$("#cpasswd").val("");
@@ -38,7 +38,7 @@
 	
 	$("#uUpdate").clicek(function() { //회원 정보 변경 버튼 클릭
 		
-		window.location.href("/shoppingmall/modify.do");
+		location.href("/shoppingmall/modify.do");
 		
 	});
 	
@@ -49,20 +49,20 @@
 			type:"POST",
 			url:"/shoppingmall/logout.do",
 			success : function(data) {
-				window.location.href("/shoppingmall/index.do");
+				location.href("/shoppingmall/index.do");
 			}
 		});
 	});
 	
 	$("#cart").click(function() { //장바구니 버튼 클릭
 	
-		window.location.href("/shoppingmall/cartList.do");
+		location.href("/shoppingmall/cartList.do");
 		
 	});
 	
 	$("#buy").click(function() { //구매내역 버튼 클릭
 	
-		window.location.href("/shoppingmall/butList.do");
+		location.href("/shoppingmall/butList.do");
 		
 	});
 });
