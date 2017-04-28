@@ -411,8 +411,7 @@ public class MngrDBBean {
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, book_kind);
-			pstmt.setInt(2, 0);
-			pstmt.setInt(3, count);
+			pstmt.setInt(2, count);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
