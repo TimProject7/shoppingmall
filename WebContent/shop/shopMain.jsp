@@ -33,7 +33,7 @@
 				href="/shoppingmall/list.do?book_kind=${book_kind }">더보기</a>
 		</p>
 		<c:forEach var="book" items="${bookList }">
-			<table class="vacenter">
+			<table class="vhcenter">
 				<tr height="30">
 					<td rowspan="4" width="100"><a
 						href="/shoppingmall/bookContent.do?book_id=${book.getBook_id() }&book_kind=${book.getBook_kind()}">
