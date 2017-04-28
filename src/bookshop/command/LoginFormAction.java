@@ -10,7 +10,7 @@ public class LoginFormAction implements CommandAction {
 		// TODO Auto-generated method stub
 		
 		request.setAttribute("type", new Integer(1));
-		return "/memer/loginForm.jsp";
+		return "/member/loginForm.jsp";
 	}
 
 }
