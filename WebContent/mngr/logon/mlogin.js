@@ -9,7 +9,7 @@
 			url:"/shoppingmall/mg/managerLoginPro.do",
 			data:query,
 			success:function(data){
-				location.href("/shoppingmall/mg/managerMain.do");
+				location.href="/shoppingmall/mg/managerMain.do";
 			}
 		});
 	});//end login

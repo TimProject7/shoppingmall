@@ -126,6 +126,7 @@ public class Controller extends HttpServlet {
 	           command = command.substring(request.getContextPath().length());
 	        com = (CommandAction)commandMap.get(command);  
 	        view = com.requestPro(request, response);
+	        System.out.println("view:"+view);
 		}catch(Throwable e) {
 			e.printStackTrace();
 		}
