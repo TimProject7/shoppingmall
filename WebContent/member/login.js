@@ -7,6 +7,7 @@
 	
 	
 	$("#uLogin").click(function() { //로그인 버튼 클릭
+		alert("눌렀다");
 		var query = {id:$("#cid").val(),
 						passwd:$("#cpasswd").val()};
 		
