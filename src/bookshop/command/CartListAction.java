@@ -29,8 +29,8 @@ public class CartListAction implements CommandAction {
 			//해당 buyer 의 장바구니 목록을 얻어냄
 			cartLists = bookProcess.getCart(buyer, count);
 			request.setAttribute("cartLists", cartLists);
-			
 		}
+		request.setAttribute("count", count);
 		request.setAttribute("type", new Integer(1));
 		return "/cart/cartList.jsp";
 	}
