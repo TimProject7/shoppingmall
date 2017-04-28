@@ -1,11 +1,9 @@
 ﻿$(document).ready(function(){
-	alert("왜안되니")
 	$("#regist").click(function(){//[책등록] 버튼 클릭
 		location.href="/shoppingmall/mg/bookRegisterForm.do";
 		
 	});
 	$("#bookMain").click(function(){//[관리자 메인으로] 버튼클릭
-		alert("왜안되니")
 		location.href="/shoppingmall/mg/managerMain.do";
 	});
 });
