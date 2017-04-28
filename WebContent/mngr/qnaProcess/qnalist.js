@@ -7,11 +7,11 @@
 function reply(replyBtn) { //[답변하기] 버튼 클릭
 	var rStr = replyBtn.name;
 	var query = "/shoppingmall/mg/qnaReplyForm.do?qna_id=" + rStr;
-	location.href(query);
+	location.href=query;
 }
 
 function edit(editBtn) { //[수정] 버튼 클릭
 	var rStr = editBtn.name;
 	var query = "/shoppingmall/mg/qnaReplyUpdateForm.do?qna_id=" + rStr;
-	location.href(query);
+	location.href=query;
 }

@@ -1,9 +1,8 @@
 ﻿$(document).ready(function() {
 	$("#conShopping").click(function() { //[쇼핑계속] 버튼 클릭
-		location.href("/shoppingmall/list.do?book_kind=all");
+		location.href="/shoppingmall/list.do?book_kind=all";
 	});
 
 	$("#shopMain").click(function() { //[메인으로] 버튼 클릭
-		location.href("/shoppingmall/index.do");
-	});
+		location.href="/shoppingmall/index.do";	});
 });

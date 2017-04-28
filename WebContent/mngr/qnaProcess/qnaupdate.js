@@ -13,12 +13,12 @@
 			url : "/shoppingmall/mg/qnaReplyUpdatePro.do",
 			data : query,
 			success : function(data) {
-				location.href("/shoppingmall/mg/qnaList.do");
+				location.href="/shoppingmall/mg/qnaList.do";
 			}
 		});
 	});
 
 	$("#cancle").click(function() { //[취소] 버튼 클릭
-		location.href("/shoppingmall/mg/qnaList.do");
+		location.href="/shoppingmall/mg/qnaList.do";
 	});
 });

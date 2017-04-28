@@ -33,8 +33,7 @@
 																	+ book_id;
 															query += "&book_kind="
 																	+ book_kind;
-															location
-																	.href(query);
+															location.href=query;
 														} else {
 															alert("QnA 등록 실패;")
 														}
@@ -50,6 +49,6 @@
 										var query = "/shoppingmall/bookContent.do?book_id="
 												+ book_id;
 										query += "&book_kind=" + book_kind;
-										location.href(query);
-									})
+										location.href=query;
+									});
 				});
