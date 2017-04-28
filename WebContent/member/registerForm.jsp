@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/shoppingmall/css/style.css"/>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-
+<script src="/shoppingmall/member/register.js"></script>
 <div id="regForm" class="box">
 	<ul>
 		<li><label for="id">아이디</label>	
