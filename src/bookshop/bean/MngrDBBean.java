@@ -334,13 +334,14 @@ public class MngrDBBean {
 			conn = getConnection();
 
 			String sql1 = "select* from book";
-			String sql2 = "select* from book";
-			sql2 += "where book_kind=? order by re_date desc";
+			String sql2 = "select* from book ";
+			sql2 += " where book_kind= ? order by reg_date desc";
 
 			if (book_kind.equals("all") || book_kind.equals("")) {
 				pstmt = conn.prepareStatement(sql1);
 			} else {
 				pstmt = conn.prepareStatement(sql2);
+				System.out.println(book_kind);
 				pstmt.setString(1, book_kind);
 			}
 			rs = pstmt.executeQuery();
