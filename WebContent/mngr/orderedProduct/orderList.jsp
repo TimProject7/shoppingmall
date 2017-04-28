@@ -1,14 +1,16 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<link rel="stylesheet" href="/shoppingmall/css/style.css"/>
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link rel="stylesheet" href="/shoppingmall/css/style.css" />
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery.min.js"></script>
 <script src="/shoppingmall/mngr/orderedProduct/orderlist.js"></script>
 
 <c:if test="${empty sessionScope.id}">
-	<meta http-equiv="Refresh" content="0;url=/shoppingmall/mg/managerMain.do">
+	<meta http-equiv="Refresh"
+		content="0;url=/shoppingmall/mg/managerMain.do">
 </c:if>
 
 <div id="listHeader">
@@ -22,7 +24,7 @@
 			<li>주문 목록이 없습니다.</li>
 		</ul>
 	</c:if>
-	
+
 	<c:if test="${count>0}">
 		<table>
 			<tr class="title">
@@ -39,49 +41,49 @@
 				<td>배송지주소</td>
 				<td>배송지상황</td>
 			</tr>
-			
-			<c:set var="total" value="0"/>
-				<c:forEach var="i" begin="0" end="${buyLists.size()-1}">
-					<c:set var="buyList" value="${buyLists.get(i)}"/>
-					<c:set var="pid" value="${buyList.getBuy_id()}"/>
-					<c:if test="${i+1> buyLists.size()-1}">
-						<c:set var="nid" value="0"/>
-					</c:if>
-					
-					<c:if test="${i+1 <= buyLists.size()-1}">
-						<c:set var="nid" value="${buyLists.get(i+1).getBuy_id}"/>
-					</c:if>
-					
+
+			<c:set var="total" value="0" />
+			<c:forEach var="i" begin="0" end="${buyLists.size()-1}">
+				<c:set var="buyList" value="${buyLists.get(i)}" />
+				<c:set var="pid" value="${buyList.getBuy_id()}" />
+				<c:if test="${i+1> buyLists.size()-1}">
+					<c:set var="nid" value="0" />
+				</c:if>
+
+				<c:if test="${i+1 <= buyLists.size()-1}">
+					<c:set var="nid" value="${buyLists.get(i+1).getBuy_id}" />
+				</c:if>
+
+				<tr>
+					<td>${buyList.getBuy_id()}</td>
+					<td>${buyList.getBuyer()}</td>
+					<td>${buyList.getBook_title()}</td>
+					<td><fmt:formatNumber value="${buyList.getBuy_price()}"
+							type="number" pattern="#,##0" />원</td>
+					<td>${buyList.getBuy_count()}</td>
+					<td><c:set var="amount"
+							value="${buyList.getBuycount()*buyList.getBuy_price()}" /> <c:set
+							var="total" value="${total+amount}" /> <fmt:formatNumber
+							value="${amount}" type="number" pattern="#,##0" />원</td>
+					<td>${buyList.getBuy_date().toString()}</td>
+					<td>${buyList.getAccount()}</td>
+					<td>${BuyList.getDeliveryName()}</td>
+					<td>${buyList.getDeliveryTel()}</td>
+					<td>${buyList.getDeliveryAddress()}</td>
+					<td>${buyList.getSanction()}</td>
+				</tr>
+
+				<c:if test="${pid != nid}">
 					<tr>
-						<td>${buyList.getBuy_id()}</td>
-						<td>${buyList.getBuyer()}</td>
-						<td>${buyList.getBook_title()}</td>
-						<td><fmt:formatNumber value="${buyList.getBuy_price()}" type="number" pattern="#,##0"/>원</td>
-						<td>${buyList.getBuy_count()}</td>
-						<td>
-							<c:set var="amount" value="${buyList.getBuycount()*buyList.getBuy_price()}"/>
-							<c:set var="total" value="${total+amount}"/>
-							<fmt:formatNumber value="${amount}" type="number" pattern="#,##0"/>원
+						<td colspan="12" class="b">주문금액: <fmt:formatNumber
+								value="${total}" type="number" pattern="#,##0" />원
 						</td>
-						<td>${buyList.getBuy_date().toString()}</td>
-						<td>${buyList.getAccount()}</td>
-						<td>${BuyList.getDeliveryName()}</td>
-						<td>${buyList.getDeliveryTel()}</td>
-						<td>${buyList.getDeliveryAddress()}</td>
-						<td>${buyList.getSanction()}</td>
 					</tr>
-				
-					<c:if test="${pid != nid}">
-						<tr>
-							<td colspan="12" class="b">주문금액:
-								<fmt:formatNumber value="${total}" type="number" pattern="#,##0"/>원
-							</td>
-						</tr>
-						
-						<c:set var="total" value="0"/>
-						<c:set var="pid" value="${nid}"/>
-					</c:if>
-				</c:forEach>
+
+					<c:set var="total" value="0" />
+					<c:set var="pid" value="${nid}" />
+				</c:if>
+			</c:forEach>
 		</table>
 	</c:if>
 </div>
