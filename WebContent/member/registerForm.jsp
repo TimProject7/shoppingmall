@@ -23,7 +23,7 @@
 		<li><label for="address">주 소</label>
 			<input type="text" id="address" name="address" size="30" placeholder="주소 입력" maxlength="50">
 			
-		<li><label for="tel">주 소</label>
+		<li><label for="tel">전화번호</label>
 			<input type="tel" id="tel" name="tel" size="20" placeholder="전화번호 입력" maxlength="20">
 			
 		<li class="label2">
