@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="stylesheet" href="/shoppingmall/css/style.css"/>
-<script src="/shoppingmall/js/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/shoppingmall/member/login.js"></script>
 
 <c:if test="${empty sessionScope.id}">

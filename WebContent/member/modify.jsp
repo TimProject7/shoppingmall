@@ -11,7 +11,7 @@
 </c:if>
 
 <div id="mStatus">
-	<form action="/shoppmingmall/modifyForm.do" method="post" id="uForm">
+	<form action="/shoppingmall/modifyForm.do" method="post" id="uForm">
 		<ul>
 			<li>
 				<label for="passwd">비밀번호</label>
