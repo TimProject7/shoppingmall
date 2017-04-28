@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
 	$("registProduct").click(function(){//[상품등록]버튼 클릭
-		alert("되라");
 		location.href="/shoppingmall/mg/bookRegisterForm.do";
 	});
 	
