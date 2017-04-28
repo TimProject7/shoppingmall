@@ -22,6 +22,7 @@ public class LoginProAction implements CommandAction {
 		
 		request.setAttribute("id", id);
 		request.setAttribute("check", new Integer(check));
+		System.out.println(check);
 		return "/member/loginPro.jsp";
 	}
 
