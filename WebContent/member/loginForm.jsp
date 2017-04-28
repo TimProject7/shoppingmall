@@ -8,7 +8,7 @@
 </script>
 <script type="text/javascript" src="/shoppingmall/member/login.js">
 </script>
-<!-- 쇼핑몰 고객 로그인폼 -->
+<!-- 쇼핑몰 고객 로그인폼1 -->
 <c:if test="${empty sessionScope.id}">
 	<div id="lStatus">
 		<ul>
