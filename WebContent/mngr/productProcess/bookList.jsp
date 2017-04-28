@@ -70,9 +70,7 @@
 							onclick="edit(this)">수정</button>
 					</td>
 					<td width="50">
-						<button id="delete"
-							name="${book.getBook_id() },${book.getBook_kind()"
-							onclick="del(this)">삭제</button>
+						<button id="delete" name="${book.getBook_id() },${book.getBook_kind()}" onclick="del(this)">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
