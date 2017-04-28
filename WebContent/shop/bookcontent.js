@@ -22,10 +22,10 @@
 	});
 
 	$("#list").click(function() {// [목록으로] 버튼 클릭
-		location.href("/shoppingmall/list.do?book_kind=all");
+		location.href="/shoppingmall/list.do?book_kind=all";
 	});
 	$("#shopMain").click(function() { // [메인으로] 버튼 클릭
-		location.href("/shoppingmall/index.do");
+		location.href="/shoppingmall/index.do";
 	});
 	$("#writeQna").click(function() { // [상품QnA쓰기] 버튼 클릭
 		var book_id = $("#book_id").val();
@@ -33,7 +33,7 @@
 
 		var query = "/shoppingmall/qnaForm.do?book_id=" + book_id;
 		query += "&book_kind=" + book_kind;
-		location.href(query);
+		location.href=query;
 
 	});
 
@@ -43,7 +43,7 @@ function edit(editBtn) {// [수정] 버튼 클릭
 	var arr = rStr.split(",");
 	var query = "/shoppingmall/qnaUpdateForm.do?qna_id=" + arr[0];
 	query += "&book_kind=" + arr[1];
-	location.href(query);
+	location.href=query;
 
 }
 function del(delBtn) {// [삭제] 버튼 클릭
@@ -65,7 +65,7 @@ function del(delBtn) {// [삭제] 버튼 클릭
 				alert("QnA가 삭제되었습니다.");
 				var query = "/shoppingmall/bookContent.do?book_id=" + arr[1];
 				query += "&book_kind=" + arr[2];
-				location.href(query);
+				location.href=query;
 			} else {// 사용할 수 있는 아이디
 				alert("QnA 삭제 실패");
 			}

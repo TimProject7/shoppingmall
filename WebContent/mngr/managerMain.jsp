@@ -13,7 +13,7 @@
 	</div>
 </c:if>
 
-<c:if test="${!empty sessionCope.id}">
+<c:if test="${!empty sessionScope.id}">
 	<div id="mList">
 		<ul>
 			<li>상품관련 작업</li>
