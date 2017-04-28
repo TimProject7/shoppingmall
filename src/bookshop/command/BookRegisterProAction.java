@@ -85,7 +85,9 @@ public class BookRegisterProAction implements CommandAction {
 		MngrDBBean bookProcess = MngrDBBean.getinstance();
 		bookProcess.insertBook(book);
 		
+		
 		request.setAttribute("book_kind", book_kind);
+		
 		return "/mngr/productProcess/bookRegisterPro.jsp";
 	}
 }
