@@ -53,8 +53,8 @@
 			<li><label for="publishing_date">출판일</label>
 				<div id="publishing_date">
 					<jsp:useBean id="nowTime" class="java.util.Date"></jsp:useBean>
-					<fmt:formatDate value="nowTimeStr" pattern="yyyy-MM-dd"
-						value="${nowTime }" />
+					<fmt:formatDate var="nowTimeStr" pattern="yyyy-MM-dd"
+						value="${nowTime}" />
 					<fmt:parseNumber var="lastYear" type="NUMBER"
 						value="${nowTimeStr.toString().substring(0,4) }" />
 					<select name="publishing_year">
