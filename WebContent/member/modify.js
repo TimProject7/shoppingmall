@@ -33,7 +33,7 @@
 	
 	$("#cancle").click(function() { //취소버튼 클릭
 		
-		window.location.href("/shoppingmall/modify.do");
+		location.href("/shoppingmall/modify.do");
 		
 	});
 	
