@@ -7,7 +7,7 @@
 		$.ajax({
 			
 			type : "post",
-			url : "/shoopingmall/confirmId.do",
+			url : "/shoppingmall/confirmId.do",
 			data: query,
 			succes : function(data) {
 				var str1 = '<p id="ck">';

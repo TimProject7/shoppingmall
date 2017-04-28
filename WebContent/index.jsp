@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div id="header">
+	
 		<div id="logo" class="box">
 			<img class="noborder" id="logo"
 				src="/shoppingmall/images/mollalogo3.png">
