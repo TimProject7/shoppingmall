@@ -94,6 +94,8 @@ public class LogonDBBean {
 
 			if (rs.next()) {// 해당 아이디가 있으면 수행
 				String dbpasswd = rs.getString("passwd");
+
+				System.out.println("shaPass= " + shaPass + "\n" + "dbpasswd= " + dbpasswd);
 				if (BCrypt.checkpw(shaPass, dbpasswd)) {
 					x = 1;// 인증성공
 				} else {
@@ -127,7 +129,6 @@ public class LogonDBBean {
 				}
 			}
 		}
-		System.out.println("x = " +x);
 		return x;
 	}
 
