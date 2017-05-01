@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <c:if test="${empty sessionScope.id}">
-	<mate http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
+	<meta http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
 </c:if>
 
 <div id="cartUpdate">

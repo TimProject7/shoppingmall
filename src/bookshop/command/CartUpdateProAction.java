@@ -19,6 +19,8 @@ public class CartUpdateProAction implements CommandAction {
 			//cart_id 에 해당하는 buy_count 의 값을 수정
 			CartDBBean bookProcess = CartDBBean.getInstance();
 			bookProcess.updateCount(cart_id, buy_count);		
+			
+			request.setAttribute("type", new Integer(1));
 		}catch (Exception e) {
 			System.out.println("CartUpdateProAction 에러 :");
 			e.printStackTrace();

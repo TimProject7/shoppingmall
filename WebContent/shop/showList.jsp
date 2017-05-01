@@ -52,7 +52,7 @@
 						test="${book.getBook_count()==0 }">일시품절</c:if> <c:if
 						test="${book.getBook_count()!=0 }">구매가능</c:if></td>
 			</tr>
-
+		
 			<tr height="30">
 				<td width="350">출판사 : ${book.getPublishing_com()}</td>
 			</tr>
