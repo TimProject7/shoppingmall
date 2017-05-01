@@ -44,13 +44,13 @@
 					value="${book.getBook_price() }"></c:set> <c:set var="rate"
 					value="${book.getDiscount_rate() }"></c:set> 정가 : <fmt:formatNumber
 					value="${price }" type="number" pattern="#,##0" />원<br> <strong
-				class="bred">판매가 : <fmt:formatNumber
-						value="${price+((100.0-rate)/100) }" type="number" pattern="#,##0" />원
+				class="bred">판매가 :<c:set var="rPrice"
+						value="${price*((100.0-rate)/100)}"></c:set> <fmt:formatNumber
+						value="${rPrice }" type="number" pattern="#,##0" />원
 			</strong></td>
 		</tr>
 		<tr>
-			<td width="500">
-			<c:if test="${!empty sessionScope.id }">
+			<td width="500"><c:if test="${!empty sessionScope.id }">
 					<c:if test="${book.getBook_count()==0 }">일시품절</c:if>
 					<c:if test="${book.getBook_count()>=1 }">수량 : <input
 							type="text" size="5" id="buy_count" value="1">개</c:if>
