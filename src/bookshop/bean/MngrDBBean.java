@@ -148,7 +148,7 @@ public class MngrDBBean {
 			conn = getConnection();
 
 			String sql = "select book_title from book ";
-			sql += " where book_kind=? and book_name=? and book_author=?";
+			sql += " where book_kind=? and book_name=? and author=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, kind);

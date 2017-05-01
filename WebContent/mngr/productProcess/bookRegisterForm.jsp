@@ -28,21 +28,31 @@
 					<option value="200">외국어</option>
 					<option value="300">컴퓨터</option>
 			</select>
-			<li><label for="book_title">제목</label> <input id="book_title"
-				name="book_title" type="text" size="50" placeholder="제목"
-				maxlength="50">
-			<li><label for="book_price">가격</label> <input id="book_price"
+			<li>
+				<label for="book_title">제목</label> 
+				<input id="book_title" name="book_title" type="text" size="50" placeholder="제목" maxlength="50">
+			</li>
+			<li>
+					<label for="book_price">가격</label> <input id="book_price"
 				name="book_price" type="text" size="10" placeholder="가격"
 				maxlength="9">원
-			<li><label for="book_count">수량</label> <input id="book_count"
+			<li>
+			<label for="book_count">수량</label> <input id="book_count"
 				name="book_count" type="text" size="10" placeholder="수량"
 				maxlength="5">권
-			<li><label for="author">저자</label> <input id="author"
+			</li>
+			<li>
+			<label for="author">저자</label> <input id="author"
 				name="author" type="text" size="20" placeholder="저자" maxlength="30">
-			<li><label for="publishing_com">출판사</label> <input
+			</li>
+			<li>
+			<label for="publishing_com">출판사</label> <input
 				id="publishing_com" name="publishing_com" type="text" size="20"
 				placeholder="출판사" maxlength="30">
+			</li>
+			
 			<li><label for="publishing_date">출판일</label>
+			
 				<div id="publishing_date">
 					<jsp:useBean id="nowTime" class="java.util.Date"></jsp:useBean>
 					<fmt:formatDate var="nowTimeStr" pattern="yyyy-MM-dd"
@@ -63,6 +73,8 @@
 						</c:forEach>
 					</select>일
 				</div>
+				
+			</li>
 			<li><label for="book_image">책 이미지</label> <input id="book_image"
 				name="book_image" type="file">
 			<li><label for="book_content">내용</label> <textarea

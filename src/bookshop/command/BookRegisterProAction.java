@@ -64,7 +64,7 @@ public class BookRegisterProAction implements CommandAction {
 			String discount_rate = imageUp.getParameter("discount_rate");
 			
 			//책 등록일 계산
-			String year = imageUp.getParameter("publishing_com");
+			String year = imageUp.getParameter("publishing_year");
 			String month = (imageUp.getParameter("publishing_month").length()==1)?
 					"0"+imageUp.getParameter("publishing_month"):imageUp.getParameter("publishing_month");
 			String day = (imageUp.getParameter("publishing_day").length()==1)?
