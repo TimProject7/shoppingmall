@@ -39,7 +39,7 @@ public class BookContentAction implements CommandAction {
 			request.setAttribute("type", new Integer(1));
 
 		}catch (Exception e) {
-			System.out.println("BookContentAction");
+			System.out.println("BookContentAction 에러");
 			e.printStackTrace();
 		}
 		

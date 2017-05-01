@@ -49,7 +49,8 @@
 			</strong></td>
 		</tr>
 		<tr>
-			<td width="500"><c:if test="${!empty sessionScope.id }">
+			<td width="500">
+			<c:if test="${!empty sessionScope.id }">
 					<c:if test="${book.getBook_count()==0 }">일시품절</c:if>
 					<c:if test="${book.getBook_count()>=1 }">수량 : <input
 							type="text" size="5" id="buy_count" value="1">개</c:if>
@@ -73,7 +74,7 @@
 				<button id="shopMain">메인으로</button></td>
 		</tr>
 		<tr class="ch">
-			<td colspan="2" class="hleft">${book.getBook_countent() }</td>
+			<td colspan="2" class="hleft">${book.getBook_content() }</td>
 		</tr>
 	</table>
 </div>
