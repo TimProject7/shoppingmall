@@ -18,7 +18,7 @@
 		
 	}
 	
-	function delList(belBtn) { //삭제 버튼 클릭
+	function delList(delBtn) { //삭제 버튼 클릭
 		
 		var rStr = delBtn.name;
 		var query = "/shoppingmall/deleteCart.do?list="+rStr;
