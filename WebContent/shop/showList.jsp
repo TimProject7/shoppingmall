@@ -47,7 +47,7 @@
 				</a></td>
 				<td width="350" class="vhcenter"><a
 					href="/shoppingmall/bookContent.do?book_id=${book.getBook_id() }&book_kind=${book.getBook_kind()}"
-					class="b"></a></td>
+					class="b">${book.getBook_title() }</a></td>
 				<td rowspan="4" width="100"><c:if
 						test="${book.getBook_count()==0 }">일시품절</c:if> <c:if
 						test="${book.getBook_count()!=0 }">구매가능</c:if></td>
