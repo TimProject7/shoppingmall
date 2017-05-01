@@ -11,7 +11,7 @@ import bookshop.bean.CartDataBean;
 public class InsertCartAction implements CommandAction {
 
 	@Override
-	public String requestPro(HttpServletRequest request,HttpServletResponse response)throws Throwable{
+	public String requestPro(HttpServletRequest request,HttpServletResponse response){
 		try{
 			request.setCharacterEncoding("UTF-8");
 			

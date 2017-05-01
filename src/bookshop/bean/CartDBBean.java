@@ -50,7 +50,7 @@ public class CartDBBean {
 			pstmt.setString(2, cart.getBuyer());
 			pstmt.setString(3, cart.getBook_title());
 			pstmt.setInt(4, cart.getBuy_price());
-			pstmt.setInt(5, cart.getBuy_count());
+			pstmt.setByte(5, cart.getBuy_count());
 			pstmt.setString(6, cart.getBook_image());
 			
 			pstmt.executeUpdate();
@@ -127,7 +127,7 @@ public class CartDBBean {
 				cart.setBook_id(rs.getInt("book_id"));
 				cart.setBook_title(rs.getString("book_title"));
 				cart.setBuy_price(rs.getInt("buy_price"));
-				cart.setBuy_count(rs.getInt("buy_count"));
+				cart.setBuy_count(rs.getByte("buy_count"));
 				cart.setBook_image(rs.getString("book_image"));
 				
 				lists.add(cart);
