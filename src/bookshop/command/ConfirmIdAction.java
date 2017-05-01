@@ -19,7 +19,6 @@ public class ConfirmIdAction implements CommandAction {
 		int check = manager.confirmid(id);
 		
 		request.setAttribute("check", new Integer(check));
-		System.out.println(check);
 		return "/member/confirmId.jsp";
 	}
 }
