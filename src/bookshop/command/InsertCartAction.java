@@ -23,6 +23,8 @@ public class InsertCartAction implements CommandAction {
 			int buy_price =(int)Float.parseFloat(request.getParameter("buy_price"));
 			String buyer = request.getParameter("buyer");
 			
+			System.out.println("buy_price:" +buy_price);
+			
 			//장바구니에 추가하기 위한 정보 구성
 			CartDataBean cart = new CartDataBean();
 			cart.setBook_id(book_id);

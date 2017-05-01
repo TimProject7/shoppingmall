@@ -58,7 +58,7 @@
 						<td width="150"><input type="text" name="buy_count" size="5"
 							value="${cart.getBuy_count()}">
 							<button id="updateSu"
-								name="${cart.getCart_id()},${car.getBuy_count()}"
+								name="${cart.getCart_id()},${cart.getBuy_count()}"
 								onclick="editSu(this)">수정</button></td>
 						<td width="150" align="center"><c:set var="amount"
 								value="${cart.getBuy_count()*cart.getBuy_price()}" /> <c:set

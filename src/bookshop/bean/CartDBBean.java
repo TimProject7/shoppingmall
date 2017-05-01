@@ -42,8 +42,8 @@ public class CartDBBean {
 		
 		try{
 			conn = getConnection();
-			sql = "insert into cart(book_id, buyer, book_title, buy_price, buy_count, book_image )"+
-					"values (?,?,?,?,?,?)";
+			sql = "insert into cart(cart_id,book_id, buyer, book_title, buy_price, buy_count, book_image )"+
+					"values (cart_seq.nextval,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, cart.getBook_id());
