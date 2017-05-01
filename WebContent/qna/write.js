@@ -9,7 +9,7 @@
 										var query = {
 
 											qna_content : $("#qnaCont").val(),
-											book_title : $("book_title").val(),
+											book_title : $("#book_title").val(),
 											book_id : book_id,
 											qora : $("#qora").val()
 										};
@@ -21,7 +21,7 @@
 													success : function(data) {
 														var str1 = '<p id="ck">';
 														var loc = data
-																.indexdOf(str1);
+																.indexOf(str1);
 														var len = str1.length;
 														var check = data
 																.substr(loc

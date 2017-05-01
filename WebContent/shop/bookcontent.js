@@ -6,7 +6,7 @@
 			book_id : $("#book_id").val(),
 			buy_count : $("#buy_count").val(),
 			book_image : $("#book_image").val(),
-			book_title : $("book_title").val(),
+			book_title : $("#book_title").val(),
 			buy_price : $("#buy_price").val(),
 			buyer : buyer
 		};
@@ -29,7 +29,7 @@
 	});
 	$("#writeQna").click(function() { // [상품QnA쓰기] 버튼 클릭
 		var book_id = $("#book_id").val();
-		var book_kind = $("book_kind").val();
+		var book_kind = $("#book_kind").val();
 
 		var query = "/shoppingmall/qnaForm.do?book_id=" + book_id;
 		query += "&book_kind=" + book_kind;

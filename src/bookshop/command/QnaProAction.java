@@ -18,7 +18,8 @@ public class QnaProAction implements CommandAction {
 		String qna_writer = request.getParameter("qna_writer");
 		String book_title = request.getParameter("book_title");
 		String qna_content = request.getParameter("qna_content");
-		int book_id = Integer.parseInt(request.getParameter("qora"));
+		int book_id = Integer.parseInt(request.getParameter("book_id"));
+		Byte qora = Byte.parseByte(request.getParameter("qora"));
 		byte reply = 0; // 답변 여부 -- 미답변
 
 		// qna를 추가하기 위한 정보 작성
@@ -29,7 +30,7 @@ public class QnaProAction implements CommandAction {
 		qna.setQna_writer(qna_writer);
 		qna.setReply(reply);
 		qna.setReg_date(new Timestamp(System.currentTimeMillis()));
-
+		qna.setQora(qora);
 		// qna를 테이블에 추가
 		QnaDBBean qnaProcess = QnaDBBean.getInstance();
 		int check = qnaProcess.insertArticle(qna);

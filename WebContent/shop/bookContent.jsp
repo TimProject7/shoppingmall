@@ -9,7 +9,7 @@
 	src="https://code.jquery.com/jquery.min.js">
 	
 </script>
-<script src="shoppingmall/shop/bookcontent.js"></script>
+<script src="/shoppingmall/shop/bookcontent.js"></script>
 
 <div id="cata" class="box2">
 	<ul>
