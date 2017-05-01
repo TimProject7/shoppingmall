@@ -24,18 +24,22 @@
 		<c:set var="total" value="0"></c:set>
 		<c:forEach var="cart" items="${cartLists }">
 			<tr>
+
+
+
 				<td width="300"><img
 					src="/shoppingmall/bookImage/${cart.getBook_image() }"
 					class="cartimage">${cart.getBook_title() }</td>
 				<td width="100" class="cen"><fmt:formatNumber
 						value="${cart.getBuy_count()*cart.getBuy_price() }" type="number"
 						pattern="#,##0" />원</td>
+				<td width="50" class="cen">${cart.getBuy_count() }</td>
 				<td width="50" class="cen"><c:set var="amount"
 						value="${cart.getBuy_count()*cart.getBuy_price() }">
 					</c:set> <c:set var="total" value="${total+amount }">
 					</c:set> <fmt:formatNumber value="${amount }" type="number" pattern="#,##0" />원
 				</td>
-				<td width="50" class="cen"></td>
+
 			</tr>
 		</c:forEach>
 		<tr>

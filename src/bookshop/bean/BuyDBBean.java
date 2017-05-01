@@ -129,6 +129,7 @@ public class BuyDBBean {
 					pstmt.setString(2, id);
 					pstmt.setInt(3, cart.getBook_id());
 					pstmt.setString(4, cart.getBook_title());
+					pstmt.setLong(5, cart.getBuy_price());
 					pstmt.setInt(6, cart.getBuy_count());
 					pstmt.setString(7, cart.getBook_image());
 					pstmt.setTimestamp(8, reg_date);
@@ -198,7 +199,7 @@ public class BuyDBBean {
 		try {
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("select(*) from buy where buyer=?");
+			pstmt = conn.prepareStatement("select count(*) from buy where buyer=?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
