@@ -58,7 +58,7 @@
 				${book.getBook_count() }
 			</c:if></td>
 					<td width="70">${book.getAuthor() }</td>
-					<td width="70">${book.getPublishing_com() }</td>
+					<td width="70">${book.getPublishing_com()}</td>
 					<td width="50">${book.getPublishing_date() }</td>
 					<td width="50">${book.getBook_image() }</td>
 					<td width="50">${book.getDiscount_rate() }</td>
