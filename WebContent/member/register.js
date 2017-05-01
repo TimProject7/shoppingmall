@@ -1,7 +1,8 @@
 ﻿$(document).ready(function() {
 	$("#checkId").click(function() { //ID중복확인 버튼 클릭
 		
-		if($("#id").val()){
+		if($("#id").val()!=null){
+			alert("dd")
 			var query = {id:$("#id").val()};
 			
 		$.ajax({
@@ -15,7 +16,7 @@
 				var len = str1.length;
 				var check = data.substr(loc + len,1);
 				
-				if(check=="1"){ //사용할수 없는 아이디
+				if(check==1){ //사용할수 없는 아이디
 					alert("사용할 수 없는 아이디 입니다.");
 					$("#id").val("");
 				}else//사용 할 수있는 아이디

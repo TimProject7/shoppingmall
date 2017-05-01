@@ -6,4 +6,4 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js">
 </script>
 
-<p id="ch">${check}
+<p id="ck">${check}
