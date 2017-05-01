@@ -121,22 +121,22 @@ public class BuyDBBean {
 
 					sql = "insert into buy(buy_id,buyer,book_id,book_title,buy_price,buy_count,";
 					sql += "book_image, buy_date,account,deliveryName,deliveryTel,deliveryAddress)";
-					sql += " values(?,?,?,?,?,?,?,?,?,?,?,?)";
+					sql += " values(buy_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 
 					pstmt = conn.prepareStatement(sql);
 
-					pstmt.setLong(1, buyId);
-					pstmt.setString(2, id);
-					pstmt.setInt(3, cart.getBook_id());
-					pstmt.setString(4, cart.getBook_title());
-					pstmt.setLong(5, cart.getBuy_price());
-					pstmt.setInt(6, cart.getBuy_count());
-					pstmt.setString(7, cart.getBook_image());
-					pstmt.setTimestamp(8, reg_date);
-					pstmt.setString(9, account);
-					pstmt.setString(10, deliveryName);
-					pstmt.setString(11, deliveryTel);
-					pstmt.setString(12, deliveryAddress);
+					
+					pstmt.setString(1, id);
+					pstmt.setInt(2, cart.getBook_id());
+					pstmt.setString(3, cart.getBook_title());
+					pstmt.setLong(4, cart.getBuy_price());
+					pstmt.setInt(5, cart.getBuy_count());
+					pstmt.setString(6, cart.getBook_image());
+					pstmt.setTimestamp(7, reg_date);
+					pstmt.setString(8, account);
+					pstmt.setString(9, deliveryName);
+					pstmt.setString(10, deliveryTel);
+					pstmt.setString(11, deliveryAddress);
 					pstmt.executeUpdate();
 
 					// 상품이 구매되었으므로 book 테이블의 상품 수량을 재조정함
