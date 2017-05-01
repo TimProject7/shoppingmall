@@ -12,10 +12,10 @@ import bookshop.bean.CartDataBean;
 public class BuyProAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		try{
+		try {
 			request.setCharacterEncoding("utf-8");
 
-			// 구매 처이에 필요한 정보를 파라미터에서 얻어냄
+			// 구매 처리에 필요한 정보를 파라미터에서 얻어냄
 			String account = request.getParameter("account");
 			String deliveryName = request.getParameter("deliveryName");
 			String deliveryTel = request.getParameter("deliveryTel");
@@ -23,23 +23,23 @@ public class BuyProAction implements CommandAction {
 			String buyer = request.getParameter("buyer");
 			int count = 0;
 
-			// 구매 처리를 위해 장바구니의 목록을 얻어냄
-
+			// 구매처리를 위해 장바구니의 목록을 얻어냄
 			CartDBBean cartProcess = CartDBBean.getInstance();
 			count = cartProcess.getListCount(buyer);
 			List<CartDataBean> cartLists = cartProcess.getCart(buyer, count);
 
-			// 장바구니의 목록, 구매자, 결제계좌, 배송지 정보를 buy 테이블에 추가
+			// 장바구니의 목록, 구매자, 결제계좌, 배송지정보를
+			// buy테이블에 추가
 			BuyDBBean buyProcess = BuyDBBean.getinstance();
 			buyProcess.insertBuy(cartLists, buyer, account, deliveryName, deliveryTel, deliveryAddress);
 
 			request.setAttribute("orderStus", "주문완료");
 			request.setAttribute("type", new Integer(1));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("BuyProAction 에러 : ");
 			e.printStackTrace();
 		}
-		
+
 		return "/buy/buyPro.jsp";
 	}
 }

@@ -88,7 +88,7 @@ public class BuyDBBean {
 		String compareDate = "";
 		long buyId = 0;
 		short nowCount;
-
+		
 		try {
 			conn = getConnection();
 			reg_date = new Timestamp(System.currentTimeMillis());
@@ -113,58 +113,61 @@ public class BuyDBBean {
 					compareDate += "00001";
 					buyId = Long.parseLong(compareDate);
 				}
-				// 105~154 라인까지 하나의 트랜잭션으로 처리
-				conn.setAutoCommit(false);
-				for (int i = 0; i < lists.size(); i++) {
-					// 해당 아이디에 대한 cart 테이블의 레코드를 가져온 후 buy 테이블에 추가
-					CartDataBean cart = lists.get(i);
+			} else {
+				compareDate += "00001";
+				buyId = Long.parseLong(compareDate);
+			}
+			// 105~154 라인까지 하나의 트랜잭션으로 처리
+			conn.setAutoCommit(false);
+			for (int i = 0; i < lists.size(); i++) {
+				// 해당 아이디에 대한 cart 테이블의 레코드를 가져온 후 buy 테이블에 추가
+				CartDataBean cart = lists.get(i);
 
-					sql = "insert into buy(buy_id,buyer,book_id,book_title,buy_price,buy_count,";
-					sql += "book_image, buy_date,account,deliveryName,deliveryTel,deliveryAddress)";
-					sql += " values(buy_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+				sql = "insert into buy(buy_id,buyer,book_id,book_title,buy_price,buy_count,";
+				sql += "book_image, buy_date,account,deliveryName,deliveryTel,deliveryAddress)";
+				sql += " values(buy_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 
-					pstmt = conn.prepareStatement(sql);
+				pstmt = conn.prepareStatement(sql);
 
-					
-					pstmt.setString(1, id);
-					pstmt.setInt(2, cart.getBook_id());
-					pstmt.setString(3, cart.getBook_title());
-					pstmt.setLong(4, cart.getBuy_price());
-					pstmt.setInt(5, cart.getBuy_count());
-					pstmt.setString(6, cart.getBook_image());
-					pstmt.setTimestamp(7, reg_date);
-					pstmt.setString(8, account);
-					pstmt.setString(9, deliveryName);
-					pstmt.setString(10, deliveryTel);
-					pstmt.setString(11, deliveryAddress);
-					pstmt.executeUpdate();
-
-					// 상품이 구매되었으므로 book 테이블의 상품 수량을 재조정함
-					pstmt = conn.prepareStatement("select book_count from book where book_id=?");
-					pstmt.setInt(1, cart.getBook_id());
-					rs = pstmt.executeQuery();
-					rs.next();
-
-					nowCount = (short) (rs.getShort(1) - 1); // 실무에서는 구매 수량을 뺄 것
-
-					sql = "update book set book_count=? where book_id=?";
-					pstmt = conn.prepareStatement(sql);
-
-					pstmt.setShort(1, nowCount);
-					pstmt.setInt(2, cart.getBook_id());
-
-					pstmt.executeUpdate();
-
-				}
-				pstmt = conn.prepareStatement("delete from cart where buyer=?");
+				
 				pstmt.setString(1, id);
+				pstmt.setInt(2, cart.getBook_id());
+				pstmt.setString(3, cart.getBook_title());
+				pstmt.setLong(4, cart.getBuy_price());
+				pstmt.setInt(5, cart.getBuy_count());
+				pstmt.setString(6, cart.getBook_image());
+				pstmt.setTimestamp(7, reg_date);
+				pstmt.setString(8, account);
+				pstmt.setString(9, deliveryName);
+				pstmt.setString(10, deliveryTel);
+				pstmt.setString(11, deliveryAddress);
 				pstmt.executeUpdate();
 
-				conn.commit();
+				// 상품이 구매되었으므로 book 테이블의 상품 수량을 재조정함
+				pstmt = conn.prepareStatement("select book_count from book where book_id=?");
+				pstmt.setInt(1, cart.getBook_id());
+				rs = pstmt.executeQuery();
+				rs.next();
 
-				conn.setAutoCommit(true);
+				nowCount = (short) (rs.getShort(1) - 1); // 실무에서는 구매 수량을 뺄 것
+
+				sql = "update book set book_count=? where book_id=?";
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setShort(1, nowCount);
+				pstmt.setInt(2, cart.getBook_id());
+
+				pstmt.executeUpdate();
 
 			}
+			pstmt = conn.prepareStatement("delete from cart where buyer=?");
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+
+			conn.commit();
+
+			conn.setAutoCommit(true);
+
 		} catch (Exception ex) {
 			// TODO: handle exception
 			ex.printStackTrace();
