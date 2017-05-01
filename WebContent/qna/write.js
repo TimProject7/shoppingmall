@@ -4,15 +4,18 @@
 					$("#regist")
 							.click(
 									function() {// [등록] 버튼 클릭
-										var book_kind = $("book_kind").val();
+										var book_kind = $("#book_kind").val();
 										var book_id = $("#book_id").val();
 										var query = {
+												qna_content:$("#qnaCont").val(),
+							  				       qna_writer:$("#qna_writer").val(),
+							  				       book_title:$("#book_title").val(),
+							  				       book_id:book_id,
+							  				       qora:$("#qora").val()};
+										
 
-											qna_content : $("#qnaCont").val(),
-											book_title : $("#book_title").val(),
-											book_id : book_id,
-											qora : $("#qora").val()
-										};
+									
+									
 
 										$.ajax({
 													type : "POST",
