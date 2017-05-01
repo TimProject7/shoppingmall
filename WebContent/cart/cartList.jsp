@@ -47,7 +47,7 @@
 			</tr>
 
 			<c:set var="total" value="0"/>
-				<c:forEach var="cart" items="${carLists}">
+				<c:forEach var="cart" items="${cartLists}">
 					<tr>
 						<td width="300"><img alt=""
 							src="/shoppingmall/bookImage/${cart.getBook_image()}"

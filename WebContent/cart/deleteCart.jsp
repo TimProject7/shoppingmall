@@ -11,7 +11,7 @@
 </div>
 
 <div id="cartDeletePro">
-	<form action="/shoppungmall/cartList.do" method="post" id="cartDeletePro">
+	<form action="/shoppingmall/cartList.do" method="post" id="cartDeletePro">
 		<input type="hidden" name="buyer" value="${sessionScope.id}">
 		<input type="submit" value="장바구니로 되돌아가기">
 	</form>
