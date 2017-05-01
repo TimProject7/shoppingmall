@@ -55,12 +55,12 @@
 				</tr>
 				<tr height="30">
 					<td width="350"><c:set var="price"
-							value="${book.getBook_price() }"></c:set>
-						<c:set var="rate" value="${book.getDiscount_rate() }"></c:set> 정가
-						: <fmt:formatNumber value="${price }" type="number"
-							pattern="#,##0" />원<br> <strong class="bred">판매가 :
-							<fmt:formatNumber value="${price+((100.0-rate)/100) }"
-								type="number" pattern="#,##0" />원
+							value="${book.getBook_price() }"></c:set> <c:set var="rate"
+							value="${book.getDiscount_rate() }"></c:set> 정가 : <fmt:formatNumber
+							value="${price }" type="number" pattern="#,##0" />원<br> <strong
+						class="bred">판매가 : <fmt:formatNumber
+								value="${price+((100.0-rate)/100) }" type="number"
+								pattern="#,##0" />원
 					</strong></td>
 				</tr>
 			</table>

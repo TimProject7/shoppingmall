@@ -32,6 +32,6 @@
 		</ul>
 	</form>
 	
-	<button id="shopMain" onclick="window.location.href('/shoppingmall/index.do')">메인으로</button>
+	<button id="shopMain" onclick="window.location.href='/shoppingmall/index.do'">메인으로</button>
 
 </div>
