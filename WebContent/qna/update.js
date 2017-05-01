@@ -14,7 +14,7 @@
 					success : function(data) {
 						var str1 = '<p id="ck">';
 						var loc = data
-								.indexdOf(str1);
+								.indexOf(str1);
 						var len = str1.length;
 						var check = data.substr(loc + len, 1);
 						if (check == "1") {//
