@@ -341,7 +341,6 @@ public class MngrDBBean {
 				pstmt = conn.prepareStatement(sql1);
 			} else {
 				pstmt = conn.prepareStatement(sql2);
-				System.out.println(book_kind);
 				pstmt.setString(1, book_kind);
 			}
 			rs = pstmt.executeQuery();
