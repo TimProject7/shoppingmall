@@ -5,7 +5,7 @@
 			qna_writer : $("#qna_writer").val(),
 			book_title : $("#book_title").val(),
 			book_id : $("#book_id").val(),
-			qna_id : $("qna_id").val(),
+			qna_id : $("#qna_id").val(),
 			qora : $("#qora").val()
 		};
 
