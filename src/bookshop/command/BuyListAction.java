@@ -11,8 +11,8 @@ import bookshop.bean.BuyDataBean;
 public class BuyListAction implements CommandAction {
 
 	@Override
-	public String requestPro(HttpServletRequest request, HttpServletResponse response){
-		try{
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		try {
 			request.setCharacterEncoding("utf-8");
 			String buyer = request.getParameter("buyer");
 
@@ -22,20 +22,18 @@ public class BuyListAction implements CommandAction {
 			// 해당 buyer의 구매 목록의 수를 얻어냄
 			BuyDBBean buyProcess = BuyDBBean.getinstance();
 			count = buyProcess.getListCount(buyer);
-
 			if (count > 0) {// 구매 목록이 있으면 수행
 				// 해당 buyer의 구매 목록을 얻어냄
 				buyLists = buyProcess.getBuyList(buyer);
 				request.setAttribute("buyLists", buyLists);
 			}
-
 			request.setAttribute("count", new Integer(count));
 			request.setAttribute("type", new Integer(1));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("BuyListAction 에러 : ");
 			e.printStackTrace();
 		}
-		
+
 		return "/buy/buyList.jsp";
 	}
 }
