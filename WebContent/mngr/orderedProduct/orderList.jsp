@@ -63,13 +63,16 @@
 					<td><fmt:formatNumber value="${buyList.getBuy_price()}"
 							type="number" pattern="#,##0" />원</td>
 					<td>${buyList.getBuy_count()}</td>
-					<td><c:set var="amount"
-							value="${buyList.getBuycount()*buyList.getBuy_price()}" /> <c:set
-							var="total" value="${total+amount}" /> <fmt:formatNumber
-							value="${amount}" type="number" pattern="#,##0" />원</td>
+					<td>
+							<c:set var="amount" value="${buyList.getBuy_count()*buyList.getBuy_price()}" />
+					 	
+					 	<c:set var="total" value="${total+amount}" /> 
+					 
+					 	<fmt:formatNumber value="${amount}" type="number" pattern="#,##0" />원</td>
+				
 					<td>${buyList.getBuy_date().toString()}</td>
 					<td>${buyList.getAccount()}</td>
-					<td>${BuyList.getDeliveryName()}</td>
+					<td>${buyList.getDeliveryName()}</td>
 					<td>${buyList.getDeliveryTel()}</td>
 					<td>${buyList.getDeliveryAddress()}</td>
 					<td>${buyList.getSanction()}</td>
